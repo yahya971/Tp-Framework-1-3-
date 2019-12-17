@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-6" >
+    <h3>
+      CV {{person.firstName|uppercase}} {{person.lastName|uppercase}}
+    </h3>
+    
+      <img src="assets/images/{{person.path|defaultImage}}" class="img-fluid img-thumbnail" style="width:200px;height:200px;margin-left:400px" alt="...">
+      <h2>
+        <i class="fas fa-address-card"></i>
+        Informations
+      </h2>
+      
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><b>Name:</b>  {{person.firstName}}</td>
+            </tr>
+            <tr>
+              <td><b>LastName:</b>  {{person.lastName}}</td>
+            </tr>
+            <tr>
+              <td><b>Job:</b>  {{person.job}}</td>
+            </tr>
+            <tr>
+              <td><b>Age:</b>  {{person.age}}</td>
+            </tr>
+            <tr>
+              <td><b>CIN:</b>  {{person.cin}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+    <button class="btn btn-primary"  (click)="showForm()">Update</button>
+    <button class="btn btn-danger"  (click)="deleteForm(person.id)">Delete</button>
+    </div>
+  <div class="col-md-6" *ngIf="updateClicked">
+    <form [formGroup]="personForm">
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" id="id" formControlName="id">
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <label for="job">Job</label>
+        <input type="text" class="form-control" id="job" formControlName="job">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" formControlName="age">
+      </div>
+      <div class="form-group">
+        <label for="cin">CIN</label>
+        <input type="text" class="form-control" id="cin" formControlName="cin">
+      </div>
+
+    </form>
+    <button class="btn btn-success" (click)="submitForm()">Submit</button>
+  </div>
+</div>

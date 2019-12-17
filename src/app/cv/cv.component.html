@@ -1,0 +1,13 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <h4>Liste Des Personnes</h4>
+    <app-liste (personSelected)="selectedPerson=$event"></app-liste>
+
+  </div>
+
+  <div class="col-md-6">
+    <app-detail [person]="selectedPerson"></app-detail>
+
+  </div>
+</div>
